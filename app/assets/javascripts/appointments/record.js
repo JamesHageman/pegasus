@@ -50,11 +50,21 @@ class RecordPage extends React.Component {
     return <div>
       { this.state.isRecording ?
           <div>
-            <button onClick={this.stopRecording.bind(this)}>Stop</button>
+            <button
+              className="btn btn-primary"
+              onClick={this.stopRecording.bind(this)}
+            >
+              Stop
+            </button>
           </div>
         :
           <div>
-            <button onClick={this.startRecording.bind(this)}>Start</button>
+            <button
+               className="btn btn-primary"
+               onClick={this.startRecording.bind(this)}
+            >
+              Start
+            </button>
           </div>
       }
       { this.state.records.length } recordings.
