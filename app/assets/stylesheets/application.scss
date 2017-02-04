@@ -60,6 +60,12 @@ p {
   @extend .btn-danger;
 }
 
+.transcript {
+  height: 150px;
+  overflow-y: scroll;
+}
+
 .recording {
-  height: 40px;
+  font-size: 13px;
+  line-height: 1;
 }

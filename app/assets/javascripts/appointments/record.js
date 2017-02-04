@@ -5,7 +5,10 @@ import Recording from './recording';
 class RecordPage extends React.Component {
   constructor() {
     super();
-    const recognition = new (window.SpeechRecognition || webkitSpeechRecognition || mozSpeechRecognition || msSpeechRecognition)();
+    const recognition = new (window.SpeechRecognition ||
+      webkitSpeechRecognition ||
+      mozSpeechRecognition ||
+      msSpeechRecognition)();
     recognition.lang = 'en-US';
     recognition.interimResults = false;
     recognition.maxAlternatives = 5;
@@ -16,15 +19,16 @@ class RecordPage extends React.Component {
     this.recognition = recognition;
     this.state = {
       isRecording: false,
-      records: []
+      records: [],
     };
   }
 
   handleSpeechRecognitionResult(event) {
     console.log(event);
     this.setState({
-      records: this.state.records.concat(event.results)
+      records: this.state.records.concat(event.results),
     });
+    $('.transcript').scrollTop($('.transcript')[0].scrollHeight);
   }
 
   handleSpeechEnd(event) {
@@ -53,38 +57,160 @@ class RecordPage extends React.Component {
   }
 
   render() {
-    return <div>
-      { this.state.isRecording ?
-          <div>
-            <button
-              className="btn btn-primary"
-              onClick={this.stopRecording.bind(this)}
-            >
-              Stop
-            </button>
+    return (
+      <div className="row">
+        <div className="col-md-12">
+          <p />
+          <h2>Transcribe</h2>
+          <p>To begin recording, press the Start button.</p>
+          <div className="row">
+            <div className="col-md-12 top15">
+              <button
+                type="button"
+                className="btn btn-info btn-lg"
+                onClick={this.startRecording.bind(this)}
+              >
+                Start
+              </button>
+            </div>
           </div>
-        :
-          <div>
-            <button
-               className="btn btn-primary"
-               onClick={this.startRecording.bind(this)}
-            >
-              Start
-            </button>
+          <div className="row">
+            <div className="col-md-12 top15 transcript">
+              {this.state.records.map((results, i) => (
+                <Recording
+                  key={i}
+                  results={results}
+                  onClassify={this.handleClassification.bind(this, i)}
+                />
+              ))}
+            </div>
           </div>
-      }
-      { this.state.records.length } recordings.
-      <ol>
-        { this.state.records.map((results, i) =>
-          <Recording
-            key={i}
-            results={results}
-            onClassify={this.handleClassification.bind(this, i)}
-          />
-        ) }
-      </ol>
-    </div>
+          <div className="row">
+            <div className="col-md-2 top15">
+              <button type="button" className="btn btn-info btn-lg">
+                Pause
+              </button>
+            </div>
+            <div className="col-md-2 top15">
+              <button
+                type="button"
+                className="btn btn-info btn-lg"
+                onClick={this.stopRecording.bind(this)}
+              >
+                Stop
+              </button>
+            </div>
+            <div className="col-md-8 top15" />
+          </div>
+          <div className="row">
+            <p />
+          </div>
+          <hr />
+          <h2>Review</h2>
+          <p>Please review the results of the appointment:</p>
+          <div className="row">
+            <h3>Symptoms</h3>
+          </div>
+          <div className="row">
+            <div
+              className="pillbox btn-warning"
+              data-initialize="pillbox"
+              id="symptomsPillbox"
+            >
+              <ul className="clearfix pill-group">
+                <li className="pillbox-input-wrap btn-group">
+                  <input
+                    type="text"
+                    className="form-control pillbox-add-item btn-danger"
+                    placeholder="more"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="row">
+            <h3>Areas Affected</h3>
+          </div>
+          <div className="row">
+            <div
+              className="pillbox btn-warning"
+              data-initialize="pillbox"
+              id="areasPillbox"
+            >
+              <ul className="clearfix pill-group">
+                <li className="pillbox-input-wrap btn-group">
+                  <input
+                    type="text"
+                    className="form-control pillbox-add-item btn-danger"
+                    placeholder="more"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="row">
+            <h3>Diagnosis</h3>
+          </div>
+          <div className="row">
+            <div
+              className="pillbox btn-warning"
+              data-initialize="pillbox"
+              id="diagnosisPillbox"
+            >
+              <ul className="clearfix pill-group">
+                <li className="pillbox-input-wrap btn-group">
+                  <input
+                    type="text"
+                    className="form-control pillbox-add-item btn-danger"
+                    placeholder="more"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="row">
+            <h3>Prescription</h3>
+          </div>
+          <div className="row">
+            <div
+              className="pillbox btn-warning"
+              data-initialize="pillbox"
+              id="prescriptionPillbox"
+            >
+              <ul className="clearfix pill-group">
+                <li className="pillbox-input-wrap btn-group">
+                  <input
+                    type="text"
+                    className="form-control pillbox-add-item btn-danger"
+                    placeholder="more"
+                  />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <h2>Report</h2>
+          <p>
+            Click these buttons to generate custom reports for the doctor or patient.
+          </p>
+          <div className="row">
+            <div className="col-md-4 top15">
+              <button type="button" className="btn btn-info btn-lg">
+                Generate Doctor's Report
+              </button>
+            </div>
+            <div className="col-md-4 top15">
+              <button type="button" className="btn btn-info btn-lg">
+                Generate Patient's Report
+              </button>
+            </div>
+            <div className="col-md-4 top15" />
+          </div>
+          <p />
+        </div>
+      </div>
+    );
   }
 }
 
-render(<RecordPage />, document.getElementById('react-mount'))
+render(<RecordPage />, document.getElementById('react-mount'));
