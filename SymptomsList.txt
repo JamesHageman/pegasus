@@ -1,0 +1,93 @@
+// Symptoms //
+   pain painful
+   fatigue fatigued
+   infection infected
+   itch itchy
+   headache
+   ache
+   fever
+   weight -> loss, gain
+   swelling
+   hot
+   cold
+   stress
+   breathing
+   nausea = sick
+   rash
+   vomit = puke
+   anxiety
+   diarrhrea
+   irritable
+   allergy
+   depression
+   sad
+   cough
+   confusion
+   inflammation
+   dizzy dizziness
+   bleeding
+   insomnia = "can't sleep"
+   constipation = "can't poop"
+   heartburn
+   tremor
+   vision
+   indigestion
+   cramp
+   bloating
+
+// Pain //
+   Abdominal pain
+   Back pain
+   Chest pain
+   Earache
+   Headache
+   Chronic pelvic pain
+   Toothache (ache)
+   Vaginal (Pain)
+   Rectal pain
+   Dermatomal pain
+
+// I feel/have/am (a) //
+   Chills
+   Fever
+   Paresthesia (numbness, tingling, electric tweaks)
+   Light-headed
+   Dizzy
+   Dizzy – about to black out
+   Dizzy – with the room spinning around me
+   My mouth is dry
+   Nauseated
+   Sick
+   like I have the flu
+   like I have to vomit
+   Short of breath
+   Sleepy
+   Sweaty
+   Thirsty
+   Tired
+   Weak
+
+// I can't //
+   Breathe normally
+   Hear normally:
+      losing hearing
+      sounds are too loud
+      ringing or hissing in my ears
+   Move one side – arm and/or leg
+   Pass a bowel action normally
+   Pass urine normally
+   Remember normally
+   See properly:
+      Blindness
+      blurred vision
+      double vision
+   Sleep normally
+   Smell things normally
+   Speak normally
+   Stop passing watery bowel actions
+   Stop scratching
+   Stop sweating
+   Swallow normally
+   Taste properly
+   Walk normally
+   Write normally
