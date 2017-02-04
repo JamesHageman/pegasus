@@ -25,7 +25,6 @@
 @import "bootstrap";
 
 
-
 body {
   background-color: #33658a;
 }
@@ -59,4 +58,8 @@ p {
 
 .pillbox .btn {
   @extend .btn-danger;
+}
+
+.recording {
+  height: 40px;
 }
