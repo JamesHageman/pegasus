@@ -14,5 +14,49 @@
  *= require_self
  */
 
+ $brand-primary: #84ACCE;
+ $brand-success: #33658a;
+ $brand-info:    #5adbff;
+ $brand-warning: white; //
+ $brand-danger:  #885053; //50C5B7;
+ $font-family-base: verdana;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+
+body {
+  background-color: #33658a;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
+p {
+    color: white;
+    font-family: verdana;
+    font-size: 17px;
+}
+
+.top15 {
+  margin-top: 15px;
+}
+
+
+//@font-size-base
+//@line-height-base
+
+.pillbox .btn {
+  @extend .btn-danger;
+}

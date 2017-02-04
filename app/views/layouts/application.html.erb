@@ -3,17 +3,20 @@
   <head>
     <title>Pegasus</title>
     <%= csrf_meta_tags %>
-
+    <link href="//www.fuelcdn.com/fuelux/3.13.0/css/fuelux.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="fuelux">
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//www.fuelcdn.com/fuelux/3.13.0/js/fuelux.min.js"></script>
     <div class="container">
       <div class="row">
-         <h1>Pegasus</h1>
+         <h1>Project Pegasus</h1>
       </div>
-      
+
       <%= yield %>
 
     </div>
