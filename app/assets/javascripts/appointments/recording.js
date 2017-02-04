@@ -6,6 +6,26 @@ class Recording extends React.Component {
     this.state = {
       selectedIndex: 0
     };
+
+    this.getLine = this.getLine.bind(this);
+    this.fetchClassification = this.fetchClassification.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchClassification();
+  }
+
+  getLine() {
+    return this.props.results[0][this.state.selectedIndex];
+  }
+
+  fetchClassification() {
+    const line = this.getLine();
+    if (line.confidence < 0.50) return;
+
+    $.get("/classify", {
+      text: line.transcript,
+    }).success(res => this.props.onClassify(res));
   }
 
   handleChange(e) {

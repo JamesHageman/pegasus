@@ -9,6 +9,7 @@ class RecordPage extends React.Component {
     recognition.lang = 'en-US';
     recognition.interimResults = false;
     recognition.maxAlternatives = 5;
+
     recognition.onresult = this.handleSpeechRecognitionResult.bind(this);
     recognition.onend = this.handleSpeechEnd.bind(this);
 
@@ -47,6 +48,10 @@ class RecordPage extends React.Component {
     this.recognition.stop();
   }
 
+  handleClassification(index, classification) {
+    console.log(index, classification);
+  }
+
   render() {
     return <div>
       { this.state.isRecording ?
@@ -71,7 +76,11 @@ class RecordPage extends React.Component {
       { this.state.records.length } recordings.
       <ol>
         { this.state.records.map((results, i) =>
-          <Recording key={i} results={results} />
+          <Recording
+            key={i}
+            results={results}
+            onClassify={this.handleClassification.bind(this, i)}
+          />
         ) }
       </ol>
     </div>

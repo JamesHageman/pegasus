@@ -1,0 +1,10 @@
+#JSGF V1.0;
+
+grammar symptoms;
+
+public <symptom> = <%= @symptoms.map { |s| s.grammar_name }.join(" | ").html_safe %>;
+
+<% @symptoms.each do |symptom| %>
+  <%= symptom.grammar_name %> = <%= symptom.names.join(" | ").html_safe %>;
+
+<% end %>

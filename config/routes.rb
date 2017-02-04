@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   get "/" => "appointments#record"
   get "/sandbox" => "appointments#sandbox"
+  get "/symptoms" => "appointments#symptoms_grammar"
+  get "/classify" => "appointments#classify"
 end
