@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import Recording from './recording';
 
 class RecordPage extends React.Component {
   constructor() {
@@ -21,12 +22,12 @@ class RecordPage extends React.Component {
   handleSpeechRecognitionResult(event) {
     console.log(event);
     this.setState({
-      records: this.state.records.concat(event)
+      records: this.state.records.concat(event.results)
     });
   }
 
   handleSpeechEnd(event) {
-    console.log('end', event);
+    console.log('end');
     if (this.state.isRecording) {
       this.recognition.start();
     }
@@ -69,8 +70,8 @@ class RecordPage extends React.Component {
       }
       { this.state.records.length } recordings.
       <ol>
-        { this.state.records.map((recording, i) =>
-          <li key={i}>{recording.results[0][0].transcript}</li>
+        { this.state.records.map((results, i) =>
+          <Recording key={i} results={results} />
         ) }
       </ol>
     </div>
