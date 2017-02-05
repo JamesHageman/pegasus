@@ -13,7 +13,7 @@ class AppointmentsController < ApplicationController
   def classify
     text = params.require(:text)
     classifier = Symptom.create_classifier
-    result = classifier.classify_with_score(text)
+    result = classifier.classify(text)
 
     render json: {
       text: text,

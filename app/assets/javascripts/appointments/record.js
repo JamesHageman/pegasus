@@ -20,6 +20,7 @@ class RecordPage extends React.Component {
     this.state = {
       isRecording: false,
       records: [],
+      symptoms: {},
     };
   }
 
@@ -52,11 +53,34 @@ class RecordPage extends React.Component {
     this.recognition.stop();
   }
 
-  handleClassification(index, classification) {
-    console.log(index, classification);
+  handleClassification(index, { classification }) {
+    console.log(classification);
+    if (classification === 'Unknown') return;
+
+    const newSymptoms = {
+      ...this.state.symptoms,
+      [classification]: (
+        this.state.symptoms[classification]
+          ? {
+              count: this.state.symptoms[classification].count + 1,
+              indices: this.state.symptoms[classification].indices.concat(
+                this.state.records.length - 1,
+              ),
+            }
+          : {
+              count: 1,
+              indices: [this.state.records.length - 1],
+            }
+      ),
+    };
+
+    this.setState({
+      symptoms: newSymptoms,
+    });
   }
 
   render() {
+    console.log(this.state.symptoms);
     return (
       <div className="row">
         <div className="col-md-12">
@@ -118,6 +142,24 @@ class RecordPage extends React.Component {
               id="symptomsPillbox"
             >
               <ul className="clearfix pill-group">
+                {Object.keys(this.state.symptoms)
+                  .map(symptom => ({
+                    ...this.state.symptoms[symptom],
+                    name: symptom,
+                  }))
+                  .sort((a, b) => b.count - a.count)
+                  .map(symptom => (
+                    <li
+                      className="btn pill"
+                      data-value="foo"
+                      key={symptom.name}
+                    >
+                      <span>{symptom.name} (x{symptom.count})</span>
+                      <span className="glyphicon glyphicon-close">
+                        <span className="sr-only">Remove</span>
+                      </span>
+                    </li>
+                  ))}
                 <li className="pillbox-input-wrap btn-group">
                   <input
                     type="text"
