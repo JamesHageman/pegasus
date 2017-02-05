@@ -14,7 +14,12 @@
     <script src="//www.fuelcdn.com/fuelux/3.13.0/js/fuelux.min.js"></script>
     <div class="container">
       <div class="row">
-         <h1>Project Pegasus</h1>
+
+        <h1>
+          <%= image_tag "logo.png" %>
+          Project Pegasus
+            <%= image_tag "logo.png", style: "transform: scaleX(-1);" %>
+        </h1>
       </div>
 
       <%= yield %>

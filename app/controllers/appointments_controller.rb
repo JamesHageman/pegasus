@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
 
   def sandbox
   end
-  
+
   def symptoms_grammar
     @symptoms = Symptom.all
     render :symptoms_grammar, layout: false, content_type: Mime::Text

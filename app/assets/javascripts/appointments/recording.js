@@ -41,7 +41,7 @@ class Recording extends React.Component {
     const { transcript, confidence } = results[0][this.state.selectedIndex];
 
     return (
-      <p className="recording text-white">
+      <p className="recording">
         {transcript}
         <span className="pull-right">
           ({(confidence * 100).toFixed(0)}% sure)
