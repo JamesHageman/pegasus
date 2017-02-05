@@ -163,7 +163,7 @@ class RecordPage extends React.Component {
                 <li className="pillbox-input-wrap btn-group">
                   <input
                     type="text"
-                    className="form-control pillbox-add-item btn-danger"
+                    className="form-control pillbox-add-item btn-info"
                     placeholder="more"
                   />
                 </li>
@@ -183,7 +183,7 @@ class RecordPage extends React.Component {
                 <li className="pillbox-input-wrap btn-group">
                   <input
                     type="text"
-                    className="form-control pillbox-add-item btn-danger"
+                    className="form-control pillbox-add-item btn-info"
                     placeholder="more"
                   />
                 </li>
@@ -203,7 +203,7 @@ class RecordPage extends React.Component {
                 <li className="pillbox-input-wrap btn-group">
                   <input
                     type="text"
-                    className="form-control pillbox-add-item btn-danger"
+                    className="form-control pillbox-add-item btn-info"
                     placeholder="more"
                   />
                 </li>
@@ -223,7 +223,7 @@ class RecordPage extends React.Component {
                 <li className="pillbox-input-wrap btn-group">
                   <input
                     type="text"
-                    className="form-control pillbox-add-item btn-danger"
+                    className="form-control pillbox-add-item btn-info"
                     placeholder="more"
                   />
                 </li>
